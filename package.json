@@ -1,7 +1,7 @@
 {
-    "name": "package-template-ts",
+    "name": "notion-canvas-sync",
     "version": "0.1.1",
-    "description": "A typescript package template",
+    "description": "For syncing a notion page with canvas data",
     "repository": "https://github.com/bkeys818/package-template-ts.git",
     "author": "Ben Keys (https://github.com/bkeys818)",
     "license": "MIT",

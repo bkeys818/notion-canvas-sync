@@ -1,3 +1,3 @@
-# package-template-ts
+# notion-canvas-sync
 
-A typescript package template
+For syncing a notion page with canvas data
