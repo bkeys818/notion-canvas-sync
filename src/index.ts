@@ -51,9 +51,11 @@ export default async function syncNotionAndCanvas(userData: UserData) {
                 return notionAssignment.updateWith(canvasAssignment)
             else
                 return notion.assignments.newItem(
-                    canvasAssignment,
-                    canvasCourseId[0],
-                    notionCourse.id
+                    Notion.Assignment.convertProps(
+                        canvasAssignment,
+                        canvasCourseId[0],
+                        notionCourse['id']
+                    )
                 )
         })
     }
