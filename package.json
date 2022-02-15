@@ -11,7 +11,7 @@
     "scripts": {
         "test": "exit 0",
         "prepare": "husky install",
-        "build": "rimraf dist && tsc"
+        "build": "rimraf dist && tsc --sourceMap false"
     },
     "main": "./dist/index.js",
     "files": [

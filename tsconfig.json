@@ -4,6 +4,7 @@
         /* Emit */
         "declaration": true,
         "outDir": "./dist",
+        "sourceMap": true,
 
         /* Type Checking */
         "strict": true,
