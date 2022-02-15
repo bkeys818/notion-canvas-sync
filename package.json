@@ -18,7 +18,12 @@
         "dist"
     ],
     "lint-staged": {
-        "*.js": "eslint --cache --fix"
+        "*.ts": [
+            "prettier -w",
+            "eslint --cache"
+        ],
+        "*.md": "prettier -w",
+        "*.{json,jsonc}": "prettier -w"
     },
     "dependencies": {
         "node-fetch": "^2.6.6",
