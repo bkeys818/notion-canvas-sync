@@ -17,7 +17,6 @@
         "*.js": "eslint --cache --fix"
     },
     "dependencies": {
-        "@notionhq/client": "0.4.11",
         "node-fetch": "^2.6.6",
         "notion-databases": "0.1.2-alpha.2"
     },
