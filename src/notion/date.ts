@@ -1,7 +1,7 @@
-import type { ResponsePropertyType } from './database/item'
+import type { Assignment } from '.'
 
 export const datesAreEqual = (
-    notionDate: ResponsePropertyType<'date'>['date'],
+    notionDate: Assignment['dueDate'],
     canvasDate?: {
         start?: string
         end?: string

@@ -1,9 +1,10 @@
-import { Client } from '@notionhq/client'
-import Database, { Course, Assignment } from './database'
-export { Course, Assignment } from './database'
+import { NotionClient as APIClient, Database } from 'notion-databases'
+import Assignment from './items/assignment'
+import Course from './items/course'
+export { Course, Assignment }
 
 export default class NotionClient {
-    private readonly client = new Client({ auth: this.token })
+    private readonly client = new APIClient(this.token)
     constructor(
         private readonly token: string,
         private readonly databaseIds: DatabaseIds

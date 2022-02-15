@@ -1,67 +1,61 @@
-import DatabaseItem, { SimpleProps, PageProperties } from './item'
-import { ExtendsDatabaseItem } from '.'
-import type * as Canvas from '../../canvas'
+import { Item, Page, Properties } from 'notion-databases'
 import { datesAreEqual } from '../date'
+import { getRichText } from '../utils'
+import type { Assignment as CanvasAssignment } from '../../canvas'
 
-export default class Assignment extends DatabaseItem<
-    AssignmentProps,
-    Canvas.Assignment
-> {
-    constructor(...[data, updatePage]: ExtendsDatabaseItem<AssignmentProps>) {
-        super(data, updatePage, assignment => {
-            const props: SimpleProps<AssignmentProps> = {}
-            if (this.title != assignment.name)
-                props.Title = [{ text: { content: assignment.name } }]
+export default class Assignment extends Item<AssignmentProps> {
+    readonly canvasId = getRichText(this.properties['Canvas Id'].rich_text)
+    private readonly title = getRichText(this.properties['Title'].title)
+    private readonly dueDate = this.properties['Due Date'].date
+    private readonly complete = this.properties.Complete.checkbox
 
-            if (
-                datesAreEqual(this.dueDate, {
-                    start: assignment.due_at ?? undefined,
-                })
-            )
-                props['Due Date'] = assignment.due_at
-                    ? { start: assignment.due_at, end: null, time_zone: null }
-                    : null
-
-            if (
-                this.complete === false &&
-                assignment.has_submitted_submissions === true
-            )
-                props.Complete = true
-
-            return props
-        })
+    constructor(
+        data: Page<AssignmentProps>,
+        newPage: ConstructorParameters<typeof Item>[1]
+    ) {
+        super(data, newPage)
     }
 
-    static convertProps = (
-        assignment: Canvas.Assignment,
+    updateWith(assignment: CanvasAssignment) {
+        const props: Parameters<typeof this.update>[0] = {}
+        if (!this.title)
+            props.Title = { title: [{ text: { content: assignment.name } }] }
+        if (
+            datesAreEqual(this.dueDate, {
+                start: assignment.due_at ?? undefined,
+            })
+        )
+            props['Due Date'] = {
+                date: assignment.due_at
+                    ? { start: assignment.due_at, end: null, time_zone: null }
+                    : null,
+            }
+        if (this.complete != assignment.has_submitted_submissions)
+            props.Complete = { checkbox: assignment.has_submitted_submissions }
+
+        return this.update(props)
+    }
+
+    static convertProps(
+        assignment: CanvasAssignment,
         institution: string,
         courseId: string
-    ) => ({
-        Title: { title: [{ text: { content: assignment.name } }] },
-        'Canvas Id': {
-            rich_text: [
-                { text: { content: [institution, assignment.id].join('/') } },
-            ],
-        },
-        'Due Date': assignment.due_at
-            ? { date: { start: assignment.due_at } }
-            : undefined,
-        Complete: { checkbox: assignment.has_submitted_submissions },
-        Course: { relation: [{ id: courseId }] },
-    }) as PageProperties<AssignmentProps>
-
-    private readonly title = (() => {
-        const title = this.getValue('Title')
-        if (title.length == 0) return null
-        else return title[0].plain_text
-    })()
-    readonly canvasId = (() => {
-        const id = this.getValue('Canvas Id')
-        if (id.length == 0) return null
-        else return id[0].plain_text
-    })()
-    private readonly dueDate = this.getValue('Due Date')
-    private readonly complete = this.getValue('Complete')
+    ): Partial<Properties<AssignmentProps>> {
+        return {
+            Title: { title: [{ text: { content: assignment.name } }] },
+            'Canvas Id': {
+                rich_text: [
+                    { text: { content: [institution, assignment.id].join('/') } },
+                ],
+            },
+            'Due Date': { date: assignment.due_at
+                ? { start: assignment.due_at } 
+                : null,
+            },
+            Complete: { checkbox: assignment.has_submitted_submissions },
+            Course: { relation: [{ id: courseId }] },
+        }
+    }
 }
 
 type AssignmentProps = {
