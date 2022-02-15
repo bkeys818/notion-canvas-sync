@@ -3315,6 +3315,20 @@ normalize-path@^3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
+notion-api-types@0.4.2-alpha.1:
+  version "0.4.2-alpha.1"
+  resolved "https://registry.yarnpkg.com/notion-api-types/-/notion-api-types-0.4.2-alpha.1.tgz#4aa2d451591515cf64e58d9f70c0aa11483f778b"
+  integrity sha512-tiP8OUJxdPl6DjwdJ+80T5AKUZqnTuRGNdcqdTMpNX1psFjmOUvYroZWi5th22hPq3HhXXTKIk1GYndJDzS5fw==
+
+notion-databases@0.1.2-alpha.2:
+  version "0.1.2-alpha.2"
+  resolved "https://registry.yarnpkg.com/notion-databases/-/notion-databases-0.1.2-alpha.2.tgz#003925569782f424e3d471c4f8cccebebe0d9d25"
+  integrity sha512-3Bc87xUHh/FD0kdFDB3ZSNckyDtBLpinw8fuKa/QF1dQcRblaH2N4KhgqfkMFRCR2+pF02Nq3gFAHLrqA2iEyw==
+  dependencies:
+    "@notionhq/client" "0.4.11"
+    node-fetch "^2.6.6"
+    notion-api-types "0.4.2-alpha.1"
+
 npm-run-path@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-4.0.1.tgz#b7ecd1e5ed53da8e37a55e1c2269e0b97ed748ea"
