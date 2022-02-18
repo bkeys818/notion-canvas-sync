@@ -27,7 +27,7 @@
     },
     "dependencies": {
         "node-fetch": "^2.6.6",
-        "notion-databases": "0.2.0-0"
+        "notion-databases": "0.2.0-1"
     },
     "devDependencies": {
         "@babel/core": "^7.16.5",
