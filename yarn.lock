@@ -1302,10 +1302,18 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.9.tgz#97edc9037ea0c38585320b28964dde3b39e4660d"
   integrity sha512-qcUXuemtEu+E5wZSJHNxUXeCZhAfXKQ41D+duX+VYPde7xyEVZci+/oXKJL13tnRs9lR2pr4fod59GT6/X1/yQ==
 
-"@types/node-fetch@2.5.12", "@types/node-fetch@^2.5.10":
+"@types/node-fetch@2.5.12":
   version "2.5.12"
   resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.5.12.tgz#8a6f779b1d4e60b7a57fb6fd48d84fb545b9cc66"
   integrity sha512-MKgC4dlq4kKNa/mYrwpKfzQMB5X3ee5U6fSprkKpToBqBmX4nFZL9cW5jl6sWn+xpRJ7ypWh2yyqqr8UUCstSw==
+  dependencies:
+    "@types/node" "*"
+    form-data "^3.0.0"
+
+"@types/node-fetch@^2.5.10":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.6.1.tgz#8f127c50481db65886800ef496f20bbf15518975"
+  integrity sha512-oMqjURCaxoSIsHSr1E47QHzbmzNR5rK8McHuNb11BOM9cHcIK3Avy0s/b2JlXHoQGTYS3NsvWzV1M0iK7l0wbA==
   dependencies:
     "@types/node" "*"
     form-data "^3.0.0"
@@ -3293,7 +3301,14 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-node-fetch@^2.6.1, node-fetch@^2.6.6:
+node-fetch@^2.6.1:
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
+  integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
+  dependencies:
+    whatwg-url "^5.0.0"
+
+node-fetch@^2.6.6:
   version "2.6.6"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.6.tgz#1751a7c01834e8e1697758732e9efb6eeadfaf89"
   integrity sha512-Z8/6vRlTUChSdIgMa51jxQ4lrw/Jy5SOW10ObaA47/RElsAN2c5Pn8bTgFGWn/ibwzXTE8qwr1Yzx28vsecXEA==
@@ -3320,10 +3335,10 @@ notion-api-types@0.4.2-alpha.1:
   resolved "https://registry.yarnpkg.com/notion-api-types/-/notion-api-types-0.4.2-alpha.1.tgz#4aa2d451591515cf64e58d9f70c0aa11483f778b"
   integrity sha512-tiP8OUJxdPl6DjwdJ+80T5AKUZqnTuRGNdcqdTMpNX1psFjmOUvYroZWi5th22hPq3HhXXTKIk1GYndJDzS5fw==
 
-notion-databases@0.1.2-alpha.2:
-  version "0.1.2-alpha.2"
-  resolved "https://registry.yarnpkg.com/notion-databases/-/notion-databases-0.1.2-alpha.2.tgz#003925569782f424e3d471c4f8cccebebe0d9d25"
-  integrity sha512-3Bc87xUHh/FD0kdFDB3ZSNckyDtBLpinw8fuKa/QF1dQcRblaH2N4KhgqfkMFRCR2+pF02Nq3gFAHLrqA2iEyw==
+notion-databases@0.2.0-0:
+  version "0.2.0-0"
+  resolved "https://registry.yarnpkg.com/notion-databases/-/notion-databases-0.2.0-0.tgz#681ada1e453fe740fa4305497746c577b969c0b9"
+  integrity sha512-mKNc/lwywU2Qo6yeEoAN/sVY918dcjwskOC3lG6Z3c3s37ENDY0jqwFv6waTGBe/dZtaEg8kvH6cHqOSpYMu9w==
   dependencies:
     "@notionhq/client" "0.4.11"
     node-fetch "^2.6.6"
