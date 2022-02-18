@@ -1,4 +1,4 @@
-import { Item, Page, Properties } from 'notion-databases'
+import { Item } from 'notion-databases'
 import { datesAreEqual } from '../date'
 import { getRichText } from '../utils'
 import type { Assignment as CanvasAssignment } from '../../canvas'
@@ -8,13 +8,6 @@ export default class Assignment extends Item<AssignmentProps> {
     private readonly title = getRichText(this.properties['Title'].title)
     private readonly dueDate = this.properties['Due Date'].date
     private readonly complete = this.properties.Complete.checkbox
-
-    constructor(
-        data: Page<AssignmentProps>,
-        newPage: ConstructorParameters<typeof Item>[1]
-    ) {
-        super(data, newPage)
-    }
 
     updateWith(assignment: CanvasAssignment) {
         const props: Parameters<typeof this.update>[0] = {}
@@ -40,17 +33,20 @@ export default class Assignment extends Item<AssignmentProps> {
         assignment: CanvasAssignment,
         institution: string,
         courseId: string
-    ): Partial<Properties<AssignmentProps>> {
+    ): Parameters<Assignment['update']>[0] {
         return {
             Title: { title: [{ text: { content: assignment.name } }] },
             'Canvas Id': {
                 rich_text: [
-                    { text: { content: [institution, assignment.id].join('/') } },
+                    {
+                        text: {
+                            content: [institution, assignment.id].join('/'),
+                        },
+                    },
                 ],
             },
-            'Due Date': { date: assignment.due_at
-                ? { start: assignment.due_at } 
-                : null,
+            'Due Date': {
+                date: assignment.due_at ? { start: assignment.due_at } : null,
             },
             Complete: { checkbox: assignment.has_submitted_submissions },
             Course: { relation: [{ id: courseId }] },

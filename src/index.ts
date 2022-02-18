@@ -8,11 +8,10 @@ export default async function syncNotionAndCanvas(userData: UserData) {
         userData.notionIds
     )
 
-    await notion.courses.getItemsPromise
-
+    const notionCourses = await notion.courses.items
     const promiseArrays = await Promise.all(
-        notion.courses.items.flatMap(notionCourse => {
-            let canvasCourseId = Canvas.extractId(notionCourse.canvasUrl)
+        notionCourses.flatMap(notionCourse => {
+            const canvasCourseId = Canvas.extractId(notionCourse.canvasUrl)
 
             return [
                 syncCourse(notionCourse, canvasCourseId),
@@ -37,12 +36,12 @@ export default async function syncNotionAndCanvas(userData: UserData) {
         notionCourse: Notion.Course,
         canvasCourseId: Canvas.ItemId
     ) {
-        const [canvasAssignments] = await Promise.all([
+        const [canvasAssignments, notionAssignments] = await Promise.all([
             canvas.getAssignments(canvasCourseId),
-            notion.assignments.getItemsPromise,
+            notion.assignments.items,
         ])
         return canvasAssignments.map(canvasAssignment => {
-            const notionAssignment = notion.assignments.items.find(
+            const notionAssignment = notionAssignments.find(
                 assignment =>
                     assignment.canvasId ==
                     [canvasCourseId[0], canvasAssignment.id].join('/')
