@@ -1178,14 +1178,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@notionhq/client@0.4.11":
-  version "0.4.11"
-  resolved "https://registry.yarnpkg.com/@notionhq/client/-/client-0.4.11.tgz#030d2397a7d38b3dfda2444cb8c3067bb6b7c842"
-  integrity sha512-+zT+qBHx8V6Fj3Tj9a4KKfYE4tWhrS/7A5OWRinEjsL5J0GKskQ5EnnLEejptg0COh6BgJShVQLPJXsr0NovLQ==
-  dependencies:
-    "@types/node-fetch" "^2.5.10"
-    node-fetch "^2.6.1"
-
 "@sinonjs/commons@^1.7.0":
   version "1.8.3"
   resolved "https://registry.yarnpkg.com/@sinonjs/commons/-/commons-1.8.3.tgz#3802ddd21a50a949b6721ddd72da36e67e7f1b2d"
@@ -1306,14 +1298,6 @@
   version "2.5.12"
   resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.5.12.tgz#8a6f779b1d4e60b7a57fb6fd48d84fb545b9cc66"
   integrity sha512-MKgC4dlq4kKNa/mYrwpKfzQMB5X3ee5U6fSprkKpToBqBmX4nFZL9cW5jl6sWn+xpRJ7ypWh2yyqqr8UUCstSw==
-  dependencies:
-    "@types/node" "*"
-    form-data "^3.0.0"
-
-"@types/node-fetch@^2.5.10":
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.6.1.tgz#8f127c50481db65886800ef496f20bbf15518975"
-  integrity sha512-oMqjURCaxoSIsHSr1E47QHzbmzNR5rK8McHuNb11BOM9cHcIK3Avy0s/b2JlXHoQGTYS3NsvWzV1M0iK7l0wbA==
   dependencies:
     "@types/node" "*"
     form-data "^3.0.0"
@@ -3301,13 +3285,6 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-node-fetch@^2.6.1:
-  version "2.6.7"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
-  integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
-  dependencies:
-    whatwg-url "^5.0.0"
-
 node-fetch@^2.6.6:
   version "2.6.6"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.6.tgz#1751a7c01834e8e1697758732e9efb6eeadfaf89"
@@ -3330,19 +3307,18 @@ normalize-path@^3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
-notion-api-types@0.4.2-alpha.1:
-  version "0.4.2-alpha.1"
-  resolved "https://registry.yarnpkg.com/notion-api-types/-/notion-api-types-0.4.2-alpha.1.tgz#4aa2d451591515cf64e58d9f70c0aa11483f778b"
-  integrity sha512-tiP8OUJxdPl6DjwdJ+80T5AKUZqnTuRGNdcqdTMpNX1psFjmOUvYroZWi5th22hPq3HhXXTKIk1GYndJDzS5fw==
+notion-api-types@0.4.2-0:
+  version "0.4.2-0"
+  resolved "https://registry.yarnpkg.com/notion-api-types/-/notion-api-types-0.4.2-0.tgz#c68ccfd2beb9dbf03984d9dc24bca45bc50fcdb3"
+  integrity sha512-OxX+qLl1TbFLQAHMLckBa5LgW93DOOEiO88S2n2+cc/lHsDwNgouEC74a/kdfm70BSoovy7RtVTp3nr7HEnBEw==
 
-notion-databases@0.2.0-0:
-  version "0.2.0-0"
-  resolved "https://registry.yarnpkg.com/notion-databases/-/notion-databases-0.2.0-0.tgz#681ada1e453fe740fa4305497746c577b969c0b9"
-  integrity sha512-mKNc/lwywU2Qo6yeEoAN/sVY918dcjwskOC3lG6Z3c3s37ENDY0jqwFv6waTGBe/dZtaEg8kvH6cHqOSpYMu9w==
+notion-databases@^0.2.0-2:
+  version "0.2.0-2"
+  resolved "https://registry.yarnpkg.com/notion-databases/-/notion-databases-0.2.0-2.tgz#73b6b50e3c87951132186a0e570435f3880a28d8"
+  integrity sha512-VQlmDkYBPp+n/c41UClldwpitKPwj9iskpQJf1es5x9fXJ3rIf4P3Lh3YHXjrGZ5hRMC2qzpygfzPfsTjC9HUQ==
   dependencies:
-    "@notionhq/client" "0.4.11"
     node-fetch "^2.6.6"
-    notion-api-types "0.4.2-alpha.1"
+    notion-api-types "0.4.2-0"
 
 npm-run-path@^4.0.1:
   version "4.0.1"
