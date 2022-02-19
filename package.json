@@ -1,6 +1,6 @@
 {
     "name": "notion-canvas-sync",
-    "version": "0.1.2-0",
+    "version": "0.1.2-2",
     "description": "For syncing a notion page with canvas data",
     "repository": "https://github.com/bkeys818/package-template-ts.git",
     "author": "Ben Keys (https://github.com/bkeys818)",
@@ -27,7 +27,7 @@
     },
     "dependencies": {
         "node-fetch": "^2.6.6",
-        "notion-databases": "0.1.2-alpha.2"
+        "notion-databases": "0.2.0-1"
     },
     "devDependencies": {
         "@babel/core": "^7.16.5",

@@ -1,10 +1,11 @@
-import { Item, Page } from 'notion-databases'
+import { Item } from 'notion-databases'
 import { datesAreEqual } from '../date'
 import { getRichText } from '../utils'
 import { extractId } from '../../canvas'
 import type { Course as CanvasCourse } from '../../canvas'
 
 export default class Course extends Item<CourseProps> {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     readonly canvasUrl = this.properties['Canvas Url'].url!
     readonly canvasId = extractId(this.canvasUrl)
     readonly customProps = (() => {
@@ -17,13 +18,6 @@ export default class Course extends Item<CourseProps> {
     })()
     private readonly name = getRichText(this.properties.Name.title)
     private readonly duration = this.properties.Duration.date
-
-    constructor(
-        data: Page<CourseProps>,
-        newPage: ConstructorParameters<typeof Item>[1]
-    ) {
-        super(data, newPage)
-    }
 
     updateWith(course: CanvasCourse) {
         const props: Parameters<typeof this.update>[0] = {}

@@ -1,10 +1,9 @@
-import { NotionClient as APIClient, Database } from 'notion-databases'
+import { Database } from 'notion-databases'
 import Assignment from './items/assignment'
 import Course from './items/course'
 export { Course, Assignment }
 
 export default class NotionClient {
-    private readonly client = new APIClient(this.token)
     constructor(
         private readonly token: string,
         private readonly databaseIds: DatabaseIds
@@ -12,7 +11,7 @@ export default class NotionClient {
 
     readonly courses = new Database(
         Course,
-        this.client,
+        this.token,
         this.databaseIds.courses,
         {
             property: 'Canvas Url',
@@ -26,7 +25,7 @@ export default class NotionClient {
 
     readonly assignments = new Database(
         Assignment,
-        this.client,
+        this.token,
         this.databaseIds.assignments,
         {
             property: 'Canvas Id',
