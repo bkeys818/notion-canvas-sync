@@ -1,14 +1,22 @@
-import CanvasClient, * as Canvas from '.'
-import fetch, { RequestInit } from 'node-fetch'
+import { extractId, type ItemId } from '.'
+import fetch from 'node-fetch'
 import { URL } from 'url'
+import { CanvasError } from './error'
 
-export default async function sendRequest(
-    this: CanvasClient,
-    params: CustomRequestParams | DirectRequestParams
+export async function get(...[params]: Parameters<typeof getRequest>) {
+    const res = await getRequest(params)
+    return res.json()
+}
+
+export async function getRequest(
+    params: DirectRequestParams | CustomRequestParams
 ) {
     let institution: string
     let urlString: string
-    if ('path' in params) {
+    if ('url' in params) {
+        institution = extractId(params.url)[0]
+        urlString = params.url
+    } else {
         institution = params.institution
         const url = new URL(
             `https://${institution}.instructure.com/api/v1/${params.path}`
@@ -22,37 +30,36 @@ export default async function sendRequest(
             else setParam(key, value)
         }
         urlString = url.href
-    } else {
-        institution = Canvas.extractId(params.url)[0]
-        urlString = params.url
     }
-    const init: RequestInit = {
+
+    const res = await fetch(urlString, {
+        method: 'GET',
         headers: {
-            Authorization: 'Bearer ' + this['tokens'][institution],
+            Authorization: 'Bearer ' + params.token,
             'Content-Type': 'application/json',
         },
-    }
-    if (params.method) init.method = params.method
-    const response = await fetch(urlString, init)
-    if (response.ok) return response
+    })
+    if (res.ok) return res
     else {
-        console.error(response)
-        throw new Error(response.statusText)
+        let err: Error
+        try {
+            err = new CanvasError(await res.json())
+        } catch {
+            err = new Error(res.statusText)
+        }
+        throw err
     }
 }
 
 type UrlParamValue = boolean | string | number | boolean[] | string[] | number[]
-
 interface RequestParams {
-    method?: 'GET' | 'POST' | 'PUT' | 'DELETE'
+    token: string
 }
-
 interface CustomRequestParams extends RequestParams {
-    institution: Canvas.ItemId[0]
+    institution: ItemId[0]
     path: string
     query?: Record<string, UrlParamValue>
 }
-
 interface DirectRequestParams extends RequestParams {
     url: string
 }
