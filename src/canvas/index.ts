@@ -1,4 +1,4 @@
-import sendRequest from './send-request'
+import { get } from './send-request'
 import { getEntireList } from './list'
 import type { UserData } from '../'
 
@@ -9,9 +9,6 @@ export default class CanvasClient {
             this.tokens[institution] = token
         }
     }
-
-    private request = sendRequest
-    private getEntireList = getEntireList.bind(this)
 
     readonly courses: Record<string, Course> = {}
     readonly assignments: Record<string, Assignment[]> = {}
@@ -31,16 +28,23 @@ export default class CanvasClient {
             })
         )
 
-    getCourse = (courseId: ItemId): Promise<Course> =>
-        this.request({
-            institution: courseId[0],
+    getCourse(courseId: ItemId): Promise<Course> {
+        const institution = courseId[0]
+        return get({
+            token: this.tokens[institution],
+            institution,
             path: `courses/${courseId[1]}`,
-        }).then(res => res.json())
-    getAssignments = (courseId: ItemId): Promise<Assignment[]> =>
-        this.request({
-            institution: courseId[0],
+        })
+    }
+
+    getAssignments(courseId: ItemId): Promise<Assignment[]> {
+        const institution = courseId[0]
+        return getEntireList({
+            token: this.tokens[institution],
+            institution,
             path: `courses/${courseId[1]}/assignments`,
-        }).then(this.getEntireList)
+        })
+    }
 }
 
 export interface Course {
@@ -167,7 +171,7 @@ export interface Assignment {
 
 export function extractId(urlStr: string): ItemId {
     const url = new URL(urlStr)
-    const institution = url.hostname.slice(0,url.hostname.indexOf('.'))
+    const institution = url.hostname.slice(0, url.hostname.indexOf('.'))
     for (const step of url.pathname.split('/').reverse()) {
         if (/\d+/.test(step)) return [institution, parseInt(step)]
     }
