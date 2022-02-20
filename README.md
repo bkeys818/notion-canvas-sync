@@ -19,10 +19,10 @@ yarn add notion-canvas-sync
 
 <!-- Markdown link & img dfn's -->
 
-[version-image]: https://img.shields.io/github/package-json/v/bkeys818/notion-canvas-sync/v0.1.1?label=version
-[version-link]: https://github.com/bkeys818/notion-canvas-sync/releases/tag/v0.1.1
+[version-image]: https://img.shields.io/github/package-json/v/bkeys818/notion-canvas-sync/v0.1.2?label=version
+[version-link]: https://github.com/bkeys818/notion-canvas-sync/releases/tag/v0.1.2
 [npm-downloads]: https://img.shields.io/npm/dm/notion-canvas-sync.svg
-[npm-link]: https://www.npmjs.com/package/notion-canvas-sync/v/0.1.1
+[npm-link]: https://www.npmjs.com/package/notion-canvas-sync/v/0.1.2
 
-<!-- [test-status]: https://github.com/bkeys818/notion-canvas-sync/actions/workflows/run-tests.yaml/badge.svg?branch=v0.1.1 -->
+<!-- [test-status]: https://github.com/bkeys818/notion-canvas-sync/actions/workflows/run-tests.yaml/badge.svg?branch=v0.1.2 -->
 <!-- [test-link]: https://github.com/bkeys818/notion-canvas-sync/actions/workflows/run-tests.yaml -->
