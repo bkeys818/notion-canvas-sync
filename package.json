@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "node-fetch": "^2.6.6",
-        "notion-databases": "^0.2.0-2"
+        "notion-databases": "~0.2.0"
     },
     "devDependencies": {
         "@tsconfig/recommended": "^1.0.1",

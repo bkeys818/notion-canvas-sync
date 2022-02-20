@@ -902,18 +902,18 @@ normalize-path@^3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
-notion-api-types@0.4.2-0:
-  version "0.4.2-0"
-  resolved "https://registry.yarnpkg.com/notion-api-types/-/notion-api-types-0.4.2-0.tgz#c68ccfd2beb9dbf03984d9dc24bca45bc50fcdb3"
-  integrity sha512-OxX+qLl1TbFLQAHMLckBa5LgW93DOOEiO88S2n2+cc/lHsDwNgouEC74a/kdfm70BSoovy7RtVTp3nr7HEnBEw==
+notion-api-types@~0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/notion-api-types/-/notion-api-types-0.4.2.tgz#fa8dd20ce30044888c71450e78ee9ceb5e0ab201"
+  integrity sha512-RmN/twjYfJtY47cLFLZZAF00hTUAfo6nP4XRP//37Q1qZi1hN7D04s811TmnzqfNnfffiSS/87aU3BP3Z1dM+w==
 
-notion-databases@^0.2.0-2:
-  version "0.2.0-2"
-  resolved "https://registry.yarnpkg.com/notion-databases/-/notion-databases-0.2.0-2.tgz#73b6b50e3c87951132186a0e570435f3880a28d8"
-  integrity sha512-VQlmDkYBPp+n/c41UClldwpitKPwj9iskpQJf1es5x9fXJ3rIf4P3Lh3YHXjrGZ5hRMC2qzpygfzPfsTjC9HUQ==
+notion-databases@~0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/notion-databases/-/notion-databases-0.2.0.tgz#cd22b75339368a7df641d041c910204747234b62"
+  integrity sha512-+LwI5IW23nSlbEvzL2yRETvfhSD5Hn+nxiocbrCVoc+A89ClACINMFpYaf1Gpq4QapwBPvJKorLg9o28iJ6qgg==
   dependencies:
     node-fetch "^2.6.6"
-    notion-api-types "0.4.2-0"
+    notion-api-types "~0.4.2"
 
 npm-run-path@^4.0.1:
   version "4.0.1"
