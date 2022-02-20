@@ -1,6 +1,7 @@
 import { extractId, type ItemId } from '.'
 import fetch from 'node-fetch'
 import { URL } from 'url'
+import { CanvasError } from './error'
 
 export async function get(...[params]: Parameters<typeof getRequest>) {
     const res = await getRequest(params)
@@ -40,8 +41,13 @@ export async function getRequest(
     })
     if (res.ok) return res
     else {
-        console.error(res)
-        throw new Error(res.statusText)
+        let err: Error
+        try {
+            err = new CanvasError(await res.json())
+        } catch {
+            err = new Error(res.statusText)
+        }
+        throw err
     }
 }
 
