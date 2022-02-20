@@ -24,12 +24,14 @@
     },
     "dependencies": {
         "node-fetch": "^2.6.6",
-        "notion-databases": "~0.2.0"
+        "notion-databases": "~0.2.0",
+        "parse-link-header": "^2.0.0"
     },
     "devDependencies": {
         "@tsconfig/recommended": "^1.0.1",
         "@types/node": "^17.0.1",
         "@types/node-fetch": "2.5.12",
+        "@types/parse-link-header": "^1.0.1",
         "@typescript-eslint/eslint-plugin": "^5.7.0",
         "@typescript-eslint/parser": "^5.7.0",
         "eslint": "^8.5.0",
